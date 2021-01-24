@@ -1,0 +1,27 @@
+Part 11)
+
+(base) Abeals-MacBook-Air:dummy abealsileshi$ git add .
+(base) Abeals-MacBook-Air:dummy abealsileshi$ git commit -m "First commit through code!e"
+-bash: !e": event not found
+(base) Abeals-MacBook-Air:dummy abealsileshi$ git commit -m "First commit through code!:
+-bash: 
+(base) Abeals-MacBook-Air:dummy abealsileshi$ git commit -m "First commit through code!"
+-bash: !": event not found
+(base) Abeals-MacBook-Air:dummy abealsileshi$ git commit - m "first commit through code"
+error: pathspec '-' did not match any file(s) known to git
+error: pathspec 'm' did not match any file(s) known to git
+error: pathspec 'first commit through code' did not match any file(s) known to git
+(base) Abeals-MacBook-Air:dummy abealsileshi$ git commit -m "Commit message goes here"
+[main c8d9ddc] Commit message goes here
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test.txt
+(base) Abeals-MacBook-Air:dummy abealsileshi$ git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 293 bytes | 293.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/abealsileshi/dummy.git
+   f58b503..c8d9ddc  main -> main
+(base) Abeals-MacBook-Air:dummy abealsileshi$ 
