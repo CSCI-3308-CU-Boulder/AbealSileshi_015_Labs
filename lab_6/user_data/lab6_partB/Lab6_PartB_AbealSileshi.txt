@@ -1,0 +1,48 @@
+Lab #6 Take Home
+Your name: Abeal Sileshi
+
+
+---------------------------------------- Question 1 Query ---------------------------------------- 
+
+select O.ship_city, sum(Od.quantity) as total
+from orders O, order_details Od
+group by O.ship_city
+order by total desc
+limit 1;
+---------------------------------------- Question 1 Results ---------------------------------------- 					
+
+"Rio de Janeiro"	946798
+---------------------------------------- Question 2 Query ---------------------------------------- 
+
+select min(Od.quantity) as min
+from orders O, order_details Od
+where O.order_id = Od.order_id
+and O.ship_city = 'Graz';
+
+---------------------------------------- Question 2 Results ---------------------------------------- 					
+
+5
+---------------------------------------- Question 3 Query ---------------------------------------- 
+
+										put query here
+
+---------------------------------------- Question 3 Results ---------------------------------------- 					
+
+										put result here	(output of the table)	
+
+---------------------------------------- Question 4 Query ---------------------------------------- 
+
+										put query here
+
+---------------------------------------- Question 4 Results ---------------------------------------- 					
+
+										put result here	(output of the table)	
+
+---------------------------------------- Question 5 Query ---------------------------------------- 
+
+										put query here
+
+---------------------------------------- Question 5 Results ---------------------------------------- 					
+
+										put result here	(output of the table)	
+

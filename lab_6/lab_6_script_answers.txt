@@ -1,0 +1,78 @@
+
+Part A: Section 3. Creating Tables & Inserting Data
+
+1)
+CREATE TABLE IF NOT EXISTS Universities (
+  UniversityName VARCHAR(200) NOT NULL,       /* Name of the school   */
+  dateEstablished DATE,                       /* age of school  */
+  Address text,                               /* School location */
+  studentPop INT,                             /* Size of school   */
+  acceptanceRate DECIMAL,                     /* Acceptance rate of the school */
+  PRIMARY KEY(UniversityName)                 /* Primary key is the university name */
+);
+
+2)
+INSERT INTO universities(UniversityName, dateEstablished, Address, studentPop, acceptanceRate)
+VALUES('CU Boulder', '1876-04-01' , '1100 28th St, Boulder, CO 80303', 35000, .80);
+
+Part A: Section 4. Query Basics
+
+1)
+select name, major from football_players
+group by major, name
+order by major, name;
+
+2)
+select name, rushing_yards
+from football_players
+where rushing_yards > 70;
+
+3)
+select * from football_games
+where visitor_name = 'Nebraska';
+
+4)
+select * from football_games
+where home_score > visitor_score;
+
+5)
+select visitor_name, game_date
+from football_games
+where game_date between '2020-09-01' and '2020-12-31';
+
+6)
+select avg(home_score)
+from football_games;
+
+Part A: Section 5. Views & SubQueries
+1)
+
+CREATE VIEW winning
+as select count(*) as wins from football_games where home_score > visitor_score;
+
+select * from winning;
+
+2)
+
+CREATE VIEW gamesPlayed 
+as select count(*) as totGames from football_games;
+
+select * from gamesPlayed;
+
+3)
+
+select cast(wins as decimal)/totGames
+from gamesPlayed, winning;
+
+Part A: Section 6. Handling Joins
+
+1)
+select count(*) from football_games where 1=ANY(players);
+
+2)
+select cast(rushing_yards as decimal)/(select count(*) as games from football_games where 1=ANY(players)
+)
+from football_players where name = 'Cedric Vega';
+
+
+docker run -d --name postgres-db -e POSTGRES_PASSWORD=Password1! -v $(pwd)/postgres_data:/var/lib/postgresql/data -v $(pwd)/user_data:/app -p 5432:5432 postgres
