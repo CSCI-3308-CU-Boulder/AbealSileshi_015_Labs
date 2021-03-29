@@ -29,9 +29,10 @@
 
 			<% 
 			if(fb_games) {
+
 				var table = '';
 				fb_games.forEach(function (item){
-					table += '<tr><td>' + item.game_date + '</td></tr>';
+					table += '<tr><td>' + item.game_date + '</td><td>' + item.visitor_name + '</td><td>' + item.home_score + '</td><td>' + item.visitor_score + '</td><td>' + 'CU' + '</td></tr>';
 				}); %>
 				<%- table %>
 			<% } %>
