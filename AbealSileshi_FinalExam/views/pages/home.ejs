@@ -1,0 +1,66 @@
+<%- include('../partials/header'); -%>
+<%- include('../partials/menu'); -%>
+<body>
+  <main>
+    <div class="" style="background-color: #0f415c;">
+      <div class="container-fluid" style="padding: 2%; ">
+        <form class="" action="/get_feed" method="post">
+          <div class="row">
+            <div class="col-3">
+            </div>
+            <div class="col-5">
+              <input class="form-control" type="text" name="title" placeholder="Enter Movie Name">
+            </div>
+            <div class="col-1">
+              <input class="btn btn-light" type="submit" name="Submit" value = "Submit"/>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="container-lg" style="margin-top: 2%;">
+      <!-- If any data member doesn't load, print '-' -->
+      <%
+      if (items) {
+      var cards = '';
+        cards =
+        '<div class="col-4">'
+        + '<img src=\''+ items[0].show.image.original +'\' alt="No Image Available" style="width:500px;height:600px;">' 
+        + '</div>'
+        +'<div class="col-8">' 
+        + '<h3>' + items[0].show.name + '</h3><br>'
+        + '<h5>Genres</h5>' 
+        + '<p>' + items[0].show.genres + '</p>'
+        + '<h5>Summary</h5>' 
+        + '<p>' + items[0].show.summary + '</p>'
+        + '<h5>Average Ratings</h5>' 
+        + '<p>' + items[0].show.rating.average + '</p>' 
+        + '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"> Add Review </button>'
+        + '</div>'
+        + '<div class="modal fade" id="myModal" role="dialog">'
+          +'<div class="modal-dialog">'
+            +'<div class="modal-content">'
+              + '<form action="/review/post_review" method="post">'
+              + '<div class="modal-header">'
+                +'<h5>Add Review</h5>'
+              +'</div>'
+              +'<div class="modal-body">'
+                +'<label>Show Name</label>' +'<input type="text" name="movie_title" value=\''+ items[0].show.name + '\' readonly>'
+                 + '<br>'
+                +'<label>Enter Review</label><textarea class="form-control" name="review_input"></textarea>'
+              +'</div>'
+              +'<div class="modal-footer">'
+                +'<button type="submit" class="btn btn-primary btn-block">Submit</button>'
+                +'</div>'
+            +'</div>'
+            +'</form>';            
+       %>
+        <%- cards %>
+    <% } %>
+      
+      <% if (error) { %>
+        <div class="alert alert-danger"><%- message %></div>
+      <% } %>
+    </div>
+  </main>
+<%- include('../partials/footer'); -%>
